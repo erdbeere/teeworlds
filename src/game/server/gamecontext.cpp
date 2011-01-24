@@ -13,6 +13,7 @@
 #include "gamemodes/tdm.h"
 #include "gamemodes/ctf.h"
 #include "gamemodes/mod.h"
+#include "gamemodes/spree.h"
 
 enum
 {
@@ -1056,6 +1057,8 @@ void CGameContext::OnInit(/*class IKernel *pKernel*/)
 		m_pController = new CGameControllerCTF(this);
 	else if(str_comp(g_Config.m_SvGametype, "tdm") == 0)
 		m_pController = new CGameControllerTDM(this);
+        else if(str_comp(g_Config.m_SvGametype, "spree") == 0)
+                m_pController = new CGameControllerSPREE(this);
 	else
 		m_pController = new CGameControllerDM(this);
 
